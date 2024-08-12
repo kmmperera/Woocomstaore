@@ -79,6 +79,10 @@ a {
   text-decoration: none;
 }
 
+img {
+  object-fit: cover;
+}
+
 .h-padding {
   font-size: var(--fz-by-20);
   padding-inline: 1em;
