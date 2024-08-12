@@ -390,8 +390,19 @@ get_header();
                         </div>
                     </div>
             </div>
+            <div  class="h-padding other-bg-color"  id="products-area">
 
-            <div class="h-padding other-bg-color" id="contact-form-area">
+                <div id="product-wrapper">
+                        <div class="product-area-title">
+                            Our products
+                        </div>
+                        <div class="products-list">
+                        <?php echo do_shortcode('[products limit="8"  category="cleaning"]'); ?>
+                        </div>
+                </div>
+                  
+            </div>
+            <div class="h-padding " id="contact-form-area">
                 <div id="contact-form-elements-wrapper">
                         <div class="member-page-service-title">
                                     Contact us

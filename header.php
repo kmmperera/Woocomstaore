@@ -51,7 +51,7 @@ function bms_get_home_url_link(){
                             <a href="<?php bms_get_home_url_link();?>#post-swiper-wrapper">Services</a>
                         </li>
                         <li class="menu-li">
-                            <a href="<?php bms_get_home_url_link();?>#products">Products</a>
+                            <a href="<?php bms_get_home_url_link();?>#products-area">Products</a>
                         </li>
                         <li class="menu-li">
                             <a href="<?php bms_get_home_url_link();?>#contact-form-elements-wrapper">Pricing</a>
@@ -67,10 +67,10 @@ function bms_get_home_url_link(){
             
             </div>
             <div class="woocommerce-icons">
-                <a href="#cart">
+                <a href="<?php echo  wc_get_cart_url(); ?>">
 
                       <i class="bi bi-cart-dash"></i>
-                  <span class="cart-number">5</span>
+                  <span class="cart-number"> <?php echo WC()->cart->get_cart_contents_count(); ?></span>
                 </a>
                 
 

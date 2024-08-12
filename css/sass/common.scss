@@ -851,7 +851,7 @@ img{
      #impress-contact-area { 
 
         margin-top: 2em;
-
+        padding-bottom: 2em;
            #impressa-contact-top { 
                     font-size: var(--fz-by-1);
                    #impressa-contact-pic { 
@@ -1018,6 +1018,28 @@ img{
 
 
     }
+
+                    // products area
+
+#products-area { 
+    
+    #product-wrapper{
+        font-size: var(--fz-by-1);
+        .product-area-title { 
+            font-size: 2em;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 8px;
+           
+        }
+        .products-list{
+            margin-top: 4em;
+        }
+
+    }
+	
+}
+
 
                     // contact form
 
@@ -1331,4 +1353,32 @@ img{
             list-style:none;
         }
     }
+}
+
+
+
+                                    // woocommerce styles
+
+// checkout page
+.wc-block-cart__submit-container{
+    color: #fff !important;
+    background-color:rgb(41, 139, 102) !important;
+}
+.wc-block-cart__submit-container:hover{
+    opacity: 0.8 !important;
+}
+
+// simgle product page
+
+.cart .single_add_to_cart_button{
+    color: #fff !important;
+    background-color:rgb(41, 139, 102) !important;
+
+}
+
+.cart .single_add_to_cart_button:hover{
+
+    opacity: 0.8 !important;
+
+
 }
