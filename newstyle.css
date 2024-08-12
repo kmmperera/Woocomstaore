@@ -1,0 +1,967 @@
+:root {
+    --fz-by-20:120px;
+    --fz-by-5:60px;
+    --fz-by-1:20px;
+    --nav-li-pri-col:black;
+  }
+  
+  @media (max-width: 1400px) {
+    :root {
+      --fz-by-20:100px;
+      --fz-by-5:55px;
+      --fz-by-1:19px;
+    }
+  }
+  @media (max-width: 1200px) {
+    :root {
+      --fz-by-20:80px;
+      --fz-by-5:50px;
+      --fz-by-1:18px;
+    }
+  }
+  @media (max-width: 992px) {
+    :root {
+      --fz-by-20:60px;
+      --fz-by-5:50px;
+      --fz-by-1:18px;
+    }
+  }
+  @media (max-width: 768px) {
+    :root {
+      --fz-by-20:40px;
+      --fz-by-5:45px;
+      --fz-by-1:18px;
+    }
+  }
+  @media (max-width: 576px) {
+    :root {
+      --fz-by-20:20px;
+      --fz-by-5:40px;
+      --fz-by-1:17px;
+    }
+  }
+  @media (max-width: 375px) {
+    :root {
+      --fz-by-20:10px;
+      --fz-by-5:35px;
+      --fz-by-1:16px;
+    }
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #main-container {
+    overflow-x: hidden;
+    font-family: "Roboto", sans-serif;
+    min-height: 100vh;
+    max-width: 1600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #F6FCF8;
+    width: 100%;
+    flex-shrink: 0;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .h-padding {
+    font-size: var(--fz-by-20);
+    padding-inline: 1em;
+  }
+  
+  .d-flx {
+    display: flex;
+  }
+  
+  .a-i-c {
+    align-items: center;
+  }
+  
+  .j-c-c {
+    justify-content: center;
+  }
+  
+  .j-c-s-b {
+    justify-content: space-between;
+  }
+  
+  .j-c-s-a {
+    justify-content: space-around;
+  }
+  
+  .other-bg-color {
+    background-color: #F2F8F4;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  
+  .logo-img-class {
+    width: 4.5em;
+    object-fit: cover;
+  }
+  
+  .img-class {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .logo-text-class {
+    font-size: 0.9em;
+    margin-left: 1em;
+    line-height: 1.4;
+    letter-spacing: 1px;
+  }
+  
+  #main-nav {
+    position: relative;
+    margin-top: 0.5em;
+  }
+  
+  #logo-area {
+    font-size: var(--fz-by-1);
+  }
+  #nav-menus {
+    font-size: var(--fz-by-1);
+  }
+  #nav-menus #m-logo-area {
+    display: none;
+  }
+  #nav-menus .closebutton {
+    display: none;
+  }
+  #nav-menus #nav-ul .nav-li {
+    margin-left: 2em;
+    font-size: 1em;
+    list-style: none;
+  }
+  #nav-menus #nav-ul .nav-li .nav-a {
+    color: var(--nav-li-pri-col);
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+  
+  .overlay-div {
+    font-size: var(--fz-by-1);
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 200;
+    transition: 0.2 ease-in;
+  }
+  
+  .bi {
+    font-size: var(--fz-by-1);
+  }
+  
+  .bi-list {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .logo-text-class {
+      margin-left: 0 !important;
+    }
+    #main-nav {
+      position: relative;
+    }
+    #main-nav #nav-menus {
+      pointer-events: none;
+      position: fixed;
+      left: -300px;
+    }
+    #main-nav #nav-menus #nav-ul {
+      flex-direction: column;
+      align-items: initial;
+    }
+    #main-nav #nav-menus #nav-ul .nav-li {
+      margin: initial;
+    }
+    #main-nav #nav-menus.active {
+      display: block;
+      background-color: #fff;
+      top: 0px;
+      pointer-events: all;
+      z-index: 300;
+      height: 100%;
+      width: 300px;
+      transform: translateX(300px);
+      transition: 0.5s all;
+      background: #F6FCF8;
+    }
+    #main-nav #nav-menus.active .closebutton {
+      position: absolute;
+      top: 30px;
+      right: 12px;
+      color: red;
+    }
+    #main-nav #nav-menus.active #m-logo-area {
+      display: flex;
+      margin-top: 0.5em;
+      align-items: center;
+      padding-inline: 1em;
+    }
+    #main-nav #nav-menus.active #m-logo-area #m-logo-img {
+      aspect-ratio: 1/1;
+      width: 4.5em;
+    }
+    #main-nav #nav-menus.active #m-logo-area #m-logo-img img {
+      object-fit: contain;
+      object-position: center;
+    }
+    #main-nav #nav-menus.active #m-logo-area #m-logo-text {
+      font-size: 0.9em;
+      margin-left: 1em;
+      line-height: 1.4;
+      letter-spacing: 1px;
+    }
+    #main-nav #nav-menus.active #nav-ul {
+      position: relative;
+      margin-top: 24px;
+      margin-left: 2em;
+    }
+    #main-nav #nav-menus.active #nav-ul .nav-li {
+      font-size: 0.9em;
+      margin-bottom: 1em;
+    }
+    #main-nav .bi-x-square.active {
+      display: inline-block;
+    }
+    #main-nav .bi-list.active {
+      display: inline-block;
+    }
+  }
+  .overlay-div.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  #hero-wrapper {
+    margin-top: 1em;
+  }
+  
+  #hero-left {
+    flex: 1.5;
+    font-size: var(--fz-by-1);
+  }
+  #hero-left #hero-title {
+    font-size: 2.5em;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  #hero-left #hero-sub-title {
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    font-weight: 500;
+    margin-top: 0.4em;
+  }
+  #hero-left #hero-description {
+    font-size: 1em;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    font-weight: 300;
+    margin-top: 1em;
+    max-width: 20em;
+  }
+  #hero-left #hero-buttons {
+    margin-top: 4em;
+    gap: 48px;
+  }
+  #hero-left #hero-buttons #buynowbtn button {
+    background-color: #17BC59;
+    color: white;
+    border: none;
+    padding: 0.9em 1.8em;
+    font-size: 0.9em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  #hero-left #hero-buttons #buynowbtn button a {
+    color: white;
+  }
+  #hero-left #hero-buttons #buynowbtn button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px #7AFA7F;
+  }
+  #hero-left #hero-buttons #buynowbtn button:hover {
+    background-color: #19B300;
+    transform: translateY(-2px);
+  }
+  #hero-left #hero-buttons #buynowbtn button:active {
+    background-color: #269400;
+    transform: translateY(2px);
+  }
+  #hero-left #hero-buttons #callnowbtn button {
+    background-color: #fff;
+    color: #129346;
+    border: 1px solid #075E2A;
+    padding: 0.9em 1.8em;
+    font-size: 0.9em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  #hero-left #hero-buttons #callnowbtn button a {
+    color: #129346;
+  }
+  #hero-left #hero-buttons #callnowbtn button:focus {
+    outline: none;
+  }
+  #hero-left #hero-buttons #callnowbtn button:hover {
+    background-color: rgb(207, 207, 207);
+    transform: translateY(-2px);
+  }
+  #hero-left #hero-buttons #callnowbtn button:active {
+    background-color: #a8a8a8;
+    transform: translateY(2px);
+  }
+  
+  #hero-right {
+    flex: 1;
+  }
+  #hero-right #first-img-container {
+    object-fit: cover;
+    max-width: 10em;
+  }
+  #hero-right #first-img-container img {
+    width: 100%;
+    height: 100%;
+  }
+  #hero-right #first-img-container video {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .ceymulticall-tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeIn 0.3s forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (max-width: 768px) {
+    #hero-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+    #hero-right {
+      order: -1;
+    }
+    #hero-right #first-img-container {
+      max-width: initial;
+    }
+    #hero-left #hero-description {
+      max-width: initial;
+      font-size: 0.8em;
+    }
+    #hero-left #hero-title {
+      font-size: 2em;
+    }
+    #hero-left #hero-buttons {
+      margin-top: 2em;
+    }
+    #hero-left #hero-buttons button {
+      font-size: 0.7em !important;
+    }
+    #hero-left #hero-sub-title {
+      font-size: 1em;
+    }
+  }
+  #post-swiper-wrapper {
+    margin-top: 2em;
+  }
+  
+  #service-slider-title {
+    font-size: var(--fz-by-1);
+    margin-bottom: 1em;
+  }
+  #service-slider-title .title-p {
+    font-size: 2em;
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 8px;
+  }
+  
+  .post-swiper-slide {
+    object-fit: cover !important;
+    aspect-ratio: 3/2;
+  }
+  .post-swiper-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 4px;
+  }
+  
+  @media (max-width: 768px) {
+    #service-slider-title .title-p {
+      font-size: 1.5em;
+      letter-spacing: 4px;
+    }
+  }
+  #services-list {
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+  }
+  #services-list .impressa-service {
+    font-size: var(--fz-by-1);
+    display: flex;
+    margin-bottom: 1em;
+  }
+  #services-list .impressa-service .service-left {
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 2/1.4;
+    flex: 1;
+  }
+  #services-list .impressa-service .service-left img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+  }
+  #services-list .impressa-service .service-right {
+    margin-left: 3em;
+    flex: 3;
+    position: relative;
+  }
+  #services-list .impressa-service .service-right .service-title {
+    font-size: 1.5em;
+    font-weight: 400;
+    letter-spacing: 4px;
+    line-height: 1.4;
+    margin-bottom: 0.2em;
+  }
+  #services-list .impressa-service .service-right .service-price {
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    margin-bottom: 2em;
+    color: goldenrod;
+  }
+  #services-list .impressa-service .service-right .service-description {
+    font-size: 0.9em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    max-width: 80%;
+  }
+  #services-list .impressa-service .service-right .service-icon {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0.2em;
+  }
+  
+  @media (max-width: 768px) {
+    #services-list {
+      margin-top: 0.75em;
+      margin-bottom: 0.75em;
+    }
+    #services-list .impressa-service {
+      font-size: 12px;
+      display: flex;
+      margin-bottom: 1em;
+    }
+    #services-list .impressa-service .service-left {
+      object-fit: cover;
+      width: 100%;
+      aspect-ratio: 2/1.4;
+      flex: 1.5;
+    }
+    #services-list .impressa-service .service-left img {
+      width: 100%;
+      height: 100%;
+    }
+    #services-list .impressa-service .service-right {
+      margin-left: 2em;
+      flex: 3;
+      position: relative;
+    }
+    #services-list .impressa-service .service-right .service-title {
+      font-size: 1.5em;
+      font-weight: 400;
+      letter-spacing: 4px;
+      line-height: 1.4;
+      margin-bottom: 0.2em;
+    }
+    #services-list .impressa-service .service-right .service-price {
+      font-size: 1em;
+      font-weight: 400;
+      letter-spacing: 1px;
+      line-height: 1.4;
+      margin-bottom: 2em;
+      color: goldenrod;
+    }
+    #services-list .impressa-service .service-right .service-description {
+      font-size: 0.9em;
+      font-weight: 400;
+      letter-spacing: 1px;
+      line-height: 1.4;
+      max-width: initial !important;
+    }
+    #services-list .impressa-service .service-right .service-icon {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0.2em;
+    }
+  }
+  #impressa-reviews-area {
+    display: flex;
+  }
+  #impressa-reviews-area #impressa-review-left {
+    font-size: var(--fz-by-1);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+    justify-content: center;
+  }
+  #impressa-reviews-area #impressa-review-left .impressa-stars {
+    font-size: 4em;
+    color: goldenrod;
+    display: flex;
+    gap: 0.4em;
+  }
+  #impressa-reviews-area #impressa-review-left #impressa-reviews-title {
+    font-size: 2.5em;
+    letter-spacing: 24px;
+    font-weight: 500;
+  }
+  #impressa-reviews-area #impressa-review-left #impressa-reviews-description {
+    font-size: 1em;
+    letter-spacing: 2px;
+    font-weight: 400;
+  }
+  #impressa-reviews-area #impressa-review-right {
+    font-size: var(--fz-by-1);
+    flex: 1;
+  }
+  #impressa-reviews-area #impressa-review-right .impressa-review {
+    margin-bottom: 1.5em;
+    display: flex;
+    background-color: #fff;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.08);
+  }
+  #impressa-reviews-area #impressa-review-right .impressa-review .review-green-bar {
+    background-color: #19B300;
+    width: 1em;
+  }
+  #impressa-reviews-area #impressa-review-right .impressa-review .impressa-review-core {
+    margin-left: 1em;
+    padding: 0.6em;
+  }
+  #impressa-reviews-area #impressa-review-right .impressa-review .impressa-review-core .impressa-review-description {
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    font-weight: 400;
+  }
+  #impressa-reviews-area #impressa-review-right .impressa-review .impressa-review-core .impressa-review-author {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    margin-top: 0.6em;
+  }
+  #impressa-reviews-area #impressa-review-right .impressa-review .impressa-review-core .impressa-review-author .impressa-review-author-pic {
+    object-fit: cover;
+    height: 3em;
+    width: 3em;
+    border-radius: 100%;
+  }
+  #impressa-reviews-area #impressa-review-right .impressa-review .impressa-review-core .impressa-review-author .impressa-review-author-pic img {
+    width: 100%;
+    height: 100%;
+  }
+  #impressa-reviews-area #impressa-review-right .impressa-review .impressa-review-core .impressa-review-author .impressa-review-author-name {
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  @media (max-width: 768px) {
+    #impressa-reviews-area {
+      display: flex;
+      flex-direction: column;
+      gap: 3em;
+    }
+    #impressa-reviews-area #impressa-review-left {
+      font-size: 12px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      align-items: center;
+      justify-content: center;
+      padding-top: 3em;
+    }
+    #impressa-reviews-area #impressa-review-left .impressa-stars {
+      font-size: 4em;
+      color: goldenrod;
+      display: flex;
+      gap: 0.4em;
+    }
+    #impressa-reviews-area #impressa-review-left #impressa-reviews-title {
+      font-size: 2.5em;
+      letter-spacing: 24px;
+      font-weight: 500;
+    }
+    #impressa-reviews-area #impressa-review-left #impressa-reviews-description {
+      font-size: 1em;
+      letter-spacing: 2px;
+      font-weight: 400;
+    }
+    #impressa-reviews-area #impressa-review-right {
+      font-size: 12px;
+      flex: 1;
+      padding-bottom: 3em;
+    }
+    #impressa-reviews-area #impressa-review-right .impressa-review {
+      margin-bottom: 1.5em;
+      display: flex;
+      background-color: #fff;
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.08);
+    }
+    #impressa-reviews-area #impressa-review-right .impressa-review .review-green-bar {
+      background-color: #19B300;
+      width: 1em;
+    }
+    #impressa-reviews-area #impressa-review-right .impressa-review .impressa-review-core {
+      margin-left: 1em;
+      padding: 0.6em;
+    }
+    #impressa-reviews-area #impressa-review-right .impressa-review .impressa-review-core .impressa-review-description {
+      font-size: 0.9em;
+      letter-spacing: 1px;
+      line-height: 1.3;
+      font-weight: 400;
+    }
+    #impressa-reviews-area #impressa-review-right .impressa-review .impressa-review-core .impressa-review-author {
+      display: flex;
+      gap: 1em;
+      align-items: center;
+      margin-top: 0.6em;
+    }
+    #impressa-reviews-area #impressa-review-right .impressa-review .impressa-review-core .impressa-review-author .impressa-review-author-pic {
+      object-fit: cover;
+      height: 3em;
+      width: 3em;
+      border-radius: 100%;
+    }
+    #impressa-reviews-area #impressa-review-right .impressa-review .impressa-review-core .impressa-review-author .impressa-review-author-pic img {
+      width: 100%;
+      height: 100%;
+    }
+    #impressa-reviews-area #impressa-review-right .impressa-review .impressa-review-core .impressa-review-author .impressa-review-author-name {
+      font-size: 0.9em;
+      letter-spacing: 1px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+  }
+  #impress-contact-area {
+    margin-top: 2em;
+  }
+  #impress-contact-area #impressa-contact-top {
+    font-size: var(--fz-by-1);
+  }
+  #impress-contact-area #impressa-contact-top #impressa-contact-pic {
+    height: 8em;
+    width: 8em;
+    border-radius: 100%;
+    object-fit: cover;
+    margin: 0px auto;
+  }
+  #impress-contact-area #impressa-contact-top #impressa-contact-pic img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+  #impress-contact-area #impressa-contact-top #impressa-contact-name {
+    font-size: 1.5em;
+    letter-spacing: 4px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }
+  #impress-contact-area #impressa-contact-top #impressa-contact-description {
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.4;
+    max-width: 70%;
+    margin: 0px auto;
+  }
+  #impress-contact-area #impressa-contact-bottom {
+    font-size: var(--fz-by-1);
+    background-color: rgba(229, 229, 229, 0.47);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.09);
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    padding-bottom: 3em;
+  }
+  #impress-contact-area #impressa-contact-bottom #impressa-contact-bottom-left {
+    text-align: center;
+    position: relative;
+    flex: 1;
+  }
+  #impress-contact-area #impressa-contact-bottom #impressa-contact-bottom-left #impressa-contact-icon {
+    position: absolute;
+    left: 50%;
+    top: -1em;
+    transform: translate(-50%, -50%);
+    background-color: #19B300;
+    height: 2em;
+    width: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+  }
+  #impress-contact-area #impressa-contact-bottom #impressa-contact-bottom-left #impressa-contact-icon .bi {
+    color: white;
+  }
+  #impress-contact-area #impressa-contact-bottom #impressa-contact-bottom-left #impressa-contact-name {
+    font-size: 1.5em;
+    letter-spacing: 4px;
+    font-weight: 500;
+    margin-top: 1em;
+  }
+  #impress-contact-area #impressa-contact-bottom #impressa-contact-bottom-left #impressa-contact-description {
+    font-size: 0.8em;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin-top: 1em;
+    line-height: 2;
+    padding: 0em 2em;
+  }
+  #impress-contact-area #impressa-contact-bottom #impressa-contact-bottom-right {
+    text-align: center;
+    position: relative;
+    flex: 1;
+  }
+  #impress-contact-area #impressa-contact-bottom #impressa-contact-bottom-right #impressa-contact-icon {
+    position: absolute;
+    left: 50%;
+    top: -1em;
+    transform: translate(-50%, -50%);
+    background-color: #19B300;
+    height: 2em;
+    width: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+  }
+  #impress-contact-area #impressa-contact-bottom #impressa-contact-bottom-right #impressa-contact-icon .bi {
+    color: white;
+  }
+  #impress-contact-area #impressa-contact-bottom #impressa-contact-bottom-right #impressa-contact-name {
+    font-size: 1.5em;
+    letter-spacing: 4px;
+    font-weight: 500;
+    margin-top: 1em;
+  }
+  #impress-contact-area #impressa-contact-bottom #impressa-contact-bottom-right #impressa-contact-description {
+    font-size: 0.8em;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin-top: 1em;
+    line-height: 2;
+  }
+  @media (max-width: 768px) {
+    #impress-contact-area {
+      margin-top: 2em;
+    }
+    #impress-contact-area #impressa-contact-top {
+      font-size: 14px;
+    }
+    #impress-contact-area #impressa-contact-bottom {
+      font-size: 14px;
+    }
+  }
+  #contact-form-area {
+    margin-top: 2em;
+  }
+  #contact-form-area #contact-form-elements-wrapper {
+    font-size: var(--fz-by-1);
+  }
+  #contact-form-area #contact-form-elements-wrapper .member-page-service-title {
+    font-size: 2em;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 8px;
+  }
+  #contact-form-area #contact-form-elements-wrapper #member-page-service-description {
+    font-size: 1em;
+    margin-top: 2em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 1.4;
+  }
+  #contact-form-area #contact-form-elements-wrapper #member-page-service-input-form {
+    margin-top: 2em;
+  }
+  #contact-form-area #contact-form-elements-wrapper #member-page-service-input-form .member-page-input-text {
+    font-size: 1em;
+    display: block;
+    margin-bottom: 2em;
+    padding: 0.4em;
+    text-indent: 1em;
+    border-radius: 4px;
+    letter-spacing: 1px;
+  }
+  #contact-form-area #contact-form-elements-wrapper #member-page-service-input-form #memeber-page-service-submit-btn {
+    font-size: 1em;
+    margin-bottom: 2em;
+  }
+  #contact-form-area #contact-form-elements-wrapper #member-page-service-input-form #memeber-page-service-submit-btn button {
+    background-color: #17BC59;
+    color: white;
+    border: none;
+    padding: 0.9em 1.8em;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  #contact-form-area #contact-form-elements-wrapper #member-page-service-input-form #memeber-page-service-submit-btn button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px #7AFA7F;
+  }
+  #contact-form-area #contact-form-elements-wrapper #member-page-service-input-form #memeber-page-service-submit-btn button:hover {
+    background-color: #19B300;
+    transform: translateY(-2px);
+  }
+  #contact-form-area #contact-form-elements-wrapper #member-page-service-input-form #memeber-page-service-submit-btn button:active {
+    background-color: #269400;
+    transform: translateY(2px);
+  }
+  
+  @media (max-width: 768px) {
+    #contact-form-area #contact-form-elements-wrapper {
+      font-size: 14px;
+    }
+    #contact-form-area #memeber-page-service-submit-btn button {
+      padding: 0.5em 1em !important;
+    }
+  }
+  #footer {
+    background-color: #10182F;
+    color: #D7F5E3;
+  }
+  
+  #footer-logo-area {
+    font-size: var(--fz-by-1);
+    margin-top: 2em;
+  }
+  #footer-section-wrapper {
+    font-size: var(--fz-by-1);
+  }
+  #footer-section-wrapper .sections-wrapper {
+    margin-top: 4em;
+  }
+  #footer-section-wrapper .sections-wrapper .footer-section-title {
+    font-size: 0.9em;
+    letter-spacing: 4px;
+    font-weight: 500;
+  }
+  #footer-section-wrapper .sections-wrapper .footer-links-ul {
+    margin-top: 2em;
+  }
+  #footer-section-wrapper .sections-wrapper .footer-links-ul .footer-li {
+    list-style: none;
+    font-size: 0.7em;
+    margin-bottom: 1em;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+  #footer-section-wrapper .sections-wrapper .footer-links-ul .footer-li .footer-li-a {
+    color: #D7F5E3;
+  }
+  #footer-section-wrapper .section-four #social-media-description {
+    font-size: 0.7em;
+    margin-top: 2em;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #D7F5E3;
+    line-height: 1.6;
+  }
+  #footer-divider-line {
+    font-size: var(--fz-by-1);
+    margin-top: 3em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  #footer-bottom-section {
+    font-size: var(--fz-by-1);
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  #footer-bottom-section .footer-fonts {
+    font-size: 0.7em;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #D7F5E3;
+    line-height: 1.6;
+  }
+  #footer-bottom-section #footer-bttm-middle {
+    gap: 2em;
+  }
+  @media (max-width: 768px) {
+    #footer-section-wrapper {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    #footer-section-wrapper .sections-wrapper {
+      margin-right: 2em !important;
+    }
+    #footer-bottom-section {
+      flex-wrap: wrap;
+      gap: 1em;
+    }
+  }
+  
+  /*# sourceMappingURL=common.css.map */
+  

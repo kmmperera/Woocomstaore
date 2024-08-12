@@ -1,0 +1,259 @@
+
+
+// menus 1
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+
+// menu
+#main-navigation{
+
+    position: fixed;
+    max-width: 1600px; 
+    width: 100%;
+    z-index: 400;
+}
+#main-navigation.scrolling{
+    
+    background:rgb(236, 241, 238);
+    box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.1);
+   
+}
+
+.navigation-wrapper { 
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--fz-by-1);
+    align-items: center;
+    padding-block:0.5em; 
+    background-color: #dbdbdb;
+
+
+
+   
+
+        .logo-area { 
+                    display: flex;
+                    gap:2em;
+                    align-items: center;
+                    position: relative;
+            .logo { 
+                            img{
+                                    height: 4em;
+                                    width: 4em;
+                                    object-fit: cover;
+                                    border-radius: 100%;
+                            }
+            }
+
+            .logo-description { 
+
+                    }
+             .home-link{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                cursor: pointer;
+                
+             }   
+        }
+
+        .menu-area { 
+
+            .menu-ul { 
+                            display: flex;
+                            gap: 2em;
+                .menu-li { 
+
+                            a { 
+
+                            }
+                   }
+                  .menu-li:hover{
+                         opacity: 0.5;
+                  }
+                  .bi-x-square{
+                    display: none;
+                 }
+            }
+        }
+
+        .icons-area { 
+                    display: none;
+                    .bi-list{
+
+                            cursor: pointer;
+                            display: none;
+                    }
+                    .bi-list:hover{
+                            opacity: 0.5;
+                    }
+                
+            }
+  
+}
+.overlay-div{
+    display: none;         
+    pointer-events: none;
+}
+@media(max-width:768px){
+    .navigation-wrapper { 
+           
+            .logo-area { 
+                    .logo { 
+                            img{
+                            }
+                    }
+    
+                    .logo-description { 
+    
+                    }
+            }
+    
+            .menu-area { 
+                  
+
+                    .menu-ul { 
+                          position: fixed;
+                          width: 330px;
+                          height: 100%;
+                          top: 0;
+                          left: -330px;
+                          display: block;
+                          transition: all 0.5s ease ;
+                            .menu-li { 
+                                margin-top: 1em;
+                                    a { 
+    
+                                    }
+                            }
+                            .menu-li:hover{
+                            }
+                    }
+            }
+    
+            .icons-area { 
+                   
+                    display: block;
+                  
+                    .bi-list{
+                       
+                        
+
+                    }
+                    .bi-list:hover{
+                    }
+                   
+                    .bi-list.active{
+                            display: block; 
+                           
+                            margin-right: 1em;
+                            color: red;
+
+                        
+                    }
+                   
+                   
+            }
+          
+    }
+    .overlay-div{
+    }
+    .overlay-div.active{
+    }
+    .navigation-wrapper.active { 
+         
+            .logo-area { 
+              
+                    .logo { 
+                            img{
+                            }
+                    }
+    
+                    .logo-description { 
+    
+                    }
+                  
+            }
+    
+            .menu-area { 
+                  
+
+                    z-index: 200;
+
+                    .menu-ul { 
+                            display:block;
+                            position: fixed;
+                            transform: translateX(330px);
+                            background-color: rgb(248, 248, 248);
+                           
+                            height: 100%;
+                            padding-top: 2em;
+                            .menu-li { 
+                                   
+                                    margin-left: 0.5em;
+                                    a { 
+    
+                                    }
+                            }
+                            .menu-li:hover{
+                            }
+                           
+                     
+                        .bi-x-square.active{
+                                display: block;
+                               color: red;
+                               position: absolute;
+                               top: 24px;
+                               right: 24px;
+    
+                        }
+                    }
+            }
+    
+            .icons-area { 
+                   
+
+                    z-index: 200;
+
+                    .bi-list.active{
+                    }
+                    .bi-list:hover{
+                    }
+                   
+                    .bi-list{
+                        display: none;
+                    }
+                   
+                   
+            }
+           
+    }
+
+    .overlay-div{
+            display: none;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+           
+            left: 0;
+            
+            background-color: rgba(0, 0, 0,0.5);
+            height: 100%;
+            width: 100%;
+    }
+    .overlay-div.active{
+            display: block;
+            pointer-events: all;
+    }
+}
+
+
+
